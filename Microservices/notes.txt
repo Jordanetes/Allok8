@@ -1,0 +1,27 @@
+Steps:
+minikube start
+minikube addons enable metrics-server
+in Allok8 directory:
+kubectl apply -f fabric8-rbac.yaml/
+in Microservices directory:
+kubectl apply -f metrics-server-yaml/
+kubectl apply -f deploy.yaml
+kubectl proxy
+
+
+
+kubectl apply -f metrics-server/deploy/kubernetes
+
+minikube addons enable metrics-server
+
+APISERVER=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
+TOKEN=$(kubectl get secret $(kubectl get serviceaccount default -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 --decode )
+
+containers:
+      - name: metrics-server
+        image: k8s.gcr.io/metrics-server-amd64:v0.3.6
+        // added command to metrics-server-deployment.yaml
+        command:
+          - /metrics-server
+          - --kubelet-insecure-tls
+          - --kubelet-preferred-address-types=InternalIP
