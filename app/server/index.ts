@@ -8,6 +8,11 @@ const PORT: number = 3000;
 //Serve Static file
 app.use("/dist", express.static(path.join(__dirname, "../dist")));
 
+//Test Route
+app.get('/test', (req: Request, res: Response) => {
+  return res.status(200).json({"hi":"there"});
+});
+
 //Parse Incoming body requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

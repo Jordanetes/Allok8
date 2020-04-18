@@ -1,10 +1,18 @@
 "use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const cmd = require("node-cmd");
+const cmd = __importStar(require("node-cmd"));
 module.exports = {
     getNodeInfo(req, res, next) {
         const { api, token } = req.body;
-        const link = `curl https://${api}/api/v1/nodes?limit=500 --header "Authorization: Bearer ${token}" --insecure`;
+        console.log(api, token);
+        const link = `curl http://${api}/api/v1/nodes?limit=500 --header "Authorization: Bearer ${token}" --insecure`;
         cmd.get(link, (err, data) => {
             if (err)
                 return next(err);
@@ -29,7 +37,7 @@ module.exports = {
     getPodInfo(req, res, next) {
         const { api, token } = req.body;
         const namespace = "default";
-        const link = `curl https://${api}/api/v1/namespaces/${namespace}/pods?limit=500 --header "Authorization: Bearer ${token}" --insecure`;
+        const link = `curl http://${api}/api/v1/namespaces/${namespace}/pods?limit=500 --header "Authorization: Bearer ${token}" --insecure`;
         cmd.get(link, (err, data) => {
             if (err)
                 return next(err);
@@ -57,7 +65,7 @@ module.exports = {
         // todo switch from body to using cookies, I think
         const { api, token } = req.body;
         //! hard coded for now
-        const link = `curl https://${api}/apis/metrics.k8s.io/v1beta1/nodes --header "Authorization: Bearer ${token}" --insecure`;
+        const link = `curl http://${api}/apis/metrics.k8s.io/v1beta1/nodes --header "Authorization: Bearer ${token}" --insecure`;
         cmd.get(link, (err, data) => {
             // error handle if needed
             if (err)
@@ -70,7 +78,7 @@ module.exports = {
     getPodsUsage(req, res, next) {
         const { api, token } = req.body;
         const namespace = "default";
-        const link = `curl https://${api}/apis/metrics.k8s.io/v1beta1/namespaces/${namespace}/pods --header "Authorization: Bearer ${token}" --insecure`;
+        const link = `curl http://${api}/apis/metrics.k8s.io/v1beta1/namespaces/${namespace}/pods --header "Authorization: Bearer ${token}" --insecure`;
         cmd.get(link, (err, data) => {
             if (err)
                 return next(err);
