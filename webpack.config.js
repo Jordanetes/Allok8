@@ -3,17 +3,18 @@ const path = require('path');
 module.exports = {
   mode: process.env.NODE_ENV,
 
-  entry: './src/index.js',
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   devServer: {
     proxy: {
-      '/server': 'http://localhost:3000',
+      '/': 'http://localhost:3000/',
     },
     contentBase: './src',
     publicPath: '/dist',
+    historyApiFallback: true
   },
   module: {
     rules: [
