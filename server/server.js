@@ -24,7 +24,7 @@ app.use('/server', curlRouter);
 
 // getting mock data
 app.get("/local", (req, res) => {
-  architecture = fs.readFileSync(path.resolve(__dirname, "./clusterArchitecture.json"),"utf8");
+  const architecture = fs.readFileSync(path.resolve(__dirname, "./clusterArchitecture.json"),"utf8");
   return res.status(200).json(architecture);
 })
 

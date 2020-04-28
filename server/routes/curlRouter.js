@@ -53,9 +53,24 @@ curlRouter.get('/dbInfo',
   dbGet.cleanOutput, 
   (req, res) => {
   // console.log(res.locals.dbResults)
+<<<<<<< HEAD
   // return res.status(200).json(res.locals.orderedOutput);
   return res.status(200).json(res.locals.cleanedOutput);
 });
 
+=======
+  return res.status(200).json(res.locals.dbResults);
+  // return res.status(200).json(res.locals.cleanedOutput);
+})
+curlRouter.post('/node', dbGet.nodeDB, dbGet.formatContainerInfo, (req, res) => {
+  return res.status(200).json(res.locals.containerInfo);
+})
+curlRouter.post('/pod', dbGet.podDB, dbGet.formatContainerInfo, (req, res) => {
+  return res.status(200).json(res.locals.containerInfo);
+})
+curlRouter.post('/container', dbGet.containerDB, dbGet.formatContainerInfo, (req, res) => {
+  return res.status(200).json(res.locals.containerInfo);
+})
+>>>>>>> integration
 
 module.exports = curlRouter;
