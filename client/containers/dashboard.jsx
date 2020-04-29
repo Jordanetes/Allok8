@@ -13,12 +13,13 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="graphs">
-      <div style={{ width: 900, height: 600 }}>
+      <div className="circle" style={{ width: 800, height: 500 }}>
           <Circle />
         </div>
-        <div style={{ width: 900, height: 600 }}>
+        <div className="line" style={{ width: 900, height: 500 }}>
           <Line />
         </div>
+        <footer className="footer">An Allok8 Iteration</footer>
       </div>
      //<NewCard />
     );

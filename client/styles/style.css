@@ -68,7 +68,7 @@ html {
     text-align: center;
     cursor: pointer;
     border: rgb(10, 10, 10);
-    border-bottom: rgb(41, 39, 39);
+    border-bottom: rgb(61, 58, 58);
     border-style: solid;
     padding: 10px;
     border-width: 1px;
@@ -82,7 +82,7 @@ html {
     height: 20px;
     width: 25%;
     background-color: black;
-    font-family: Andale Mono;
+    font-family: 'Andale Mono';
     border: rgb(3, 47, 119);
     border-style: solid;
     border-width: 1px;
@@ -122,8 +122,22 @@ html {
 
  .graphs {
      display: flex;
-     flex-direction: column;
-     justify-content: center;
+     flex-direction: row;
+     justify-content: space-around;
      align-content: center;
      align-items: center;
+     padding-top: 20px;
+     padding-right: 35px;
  }
+
+ .circle {
+     border: rgb(10, 10, 10);
+     border-right: rgb(61, 58, 58);
+     border-width: 1px;
+     border-style: solid;
+ }
+
+ .line {
+     padding-left: 25px;
+ }
+

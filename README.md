@@ -85,11 +85,11 @@ We love feedback! We are always looking to improve. For major changes, please op
 
 ✏️👩‍💻👨‍💻📓
 
-* Bahram Bagher - [@bbagher](https://github.com/bbagher)
-* Jason Seidler - [@jsonseidler](https://github.com/jsonseidler)
-* Rella Cruz - [@rllzrc](https://github.com/rllzrc)
-* Rex Osariemen - [@rexosariemen](https://github.com/rexosariemen)
-* Tyler Meyerson - [@tdmeyerson](https://github.com/Tdmeyerson)
+* Raph Bargues - (https://github.com/rbargues)
+* Justin Gillespie - (https://github.com/jgillespie0715)
+* Jordan Kelly - (https://github.com/jorbreezy)
+* Alec Below - (https://github.com/georgia0nmymind)
+* Natalia Vargas-Caba - (https://github.com/nataliavc08)
 
 ## License
 
