@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import NewNode from "./NewNode.jsx";
 
 class NewCard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       apiresponse: []
     }
@@ -26,10 +26,10 @@ class NewCard extends Component {
   render() {
     const nodes = [];
     for (let i = 0; i < this.state.apiresponse.length; i++) {
-      nodes.push(<NewNode nodeName = {this.state.apiresponse[i].node} pods = {this.state.apiresponse[i].pods}/>)
+      nodes.push(<NewNode key={this.state.apiresponse[i]} nodeName = {this.state.apiresponse[i].node} pods = {this.state.apiresponse[i].pods}/>)
     }
     return (
-      <div className = "card">
+      <div className = "card" onClick = {this.props.selectObject}>
         {nodes}
       </div>
     )
