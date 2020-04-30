@@ -7,7 +7,6 @@ import * as cmd from "node-cmd";
 module.exports = {
   getNodeInfo(req: Request, res: Response, next: NextFunction) {
     const { api, token } = req.body;
-    console.log(api, token);
 
     const link = `curl https://${api}/api/v1/nodes?limit=500 --header "Authorization: Bearer ${token}" --insecure`;
     cmd.get(link, (err: any, data: any) => {
@@ -17,7 +16,7 @@ module.exports = {
       const nodeNameArray: string[] = [];
       const nodeMetricsRaw: object = {};
 
-      console.log('This is obj', obj);
+      console.log(obj);
 
       if(obj !== undefined) {
         obj.items.forEach((item) => {
@@ -66,7 +65,6 @@ module.exports = {
     });
   },
   getNodesUsage(req: Request, res: Response, next: NextFunction) {
-    //console.log("nodes")
     // todo switch from body to using cookies, I think
     const { api, token } = req.body;
     //! hard coded for now
@@ -91,10 +89,6 @@ module.exports = {
       if (err) return next(err);
 
       const info: nodeUsage.namespace.nodeUsage = JSON.parse(data);
-
-      console.log('---9---');
-      console.log(info)
-      console.log('---9---');
 
       res.locals.podUsage = info;
       return next();

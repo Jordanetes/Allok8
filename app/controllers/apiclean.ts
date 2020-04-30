@@ -13,7 +13,6 @@ const cleaner = {
     const nodeMetricsFormat = {};
     for (let i = 0; i < res.locals.nodes.length; i++) {
       const nodeName = res.locals.nodes[i];
-      // console.log(nodeMetricsRaw[nodeName]);
       const { capacity, allocatable, nodeUsage, pods } = nodeMetricsRaw[
         nodeName
       ];

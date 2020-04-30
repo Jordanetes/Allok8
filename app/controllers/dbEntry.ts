@@ -31,7 +31,7 @@ const dbEntry = {
         if (sqlres.rows.length === 0) {
           return next("empty");
         }
-        console.log(sqlres.rows[0]);
+   
         const { api, token } = sqlres.rows[0];
         res.locals.api = api;
         res.locals.token = token;
@@ -65,7 +65,6 @@ const dbEntry = {
           const node_id = sqlres.rows[0].node_id;
           const { pods } = nodeInfo;
           pods.forEach((pod) => {
-            console.log(pod);
             const podName = Object.keys(pod)[0];
             const { status, timestamp, containers } = pod[podName];
             db2.query(
@@ -79,7 +78,7 @@ const dbEntry = {
                 if (err) return next(err);
                 const pod_id = sqlres.rows[0].pod_id;
                 const containerNames = Object.keys(containers);
-                console.log(pod_id, containerNames);
+              
                 containerNames.forEach((containerName) => {
                   const {
                     cpuUsed,

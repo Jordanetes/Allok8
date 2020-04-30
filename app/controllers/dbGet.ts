@@ -15,7 +15,7 @@ module.exports = {
       (err: any, sqlres: any) => {
         if (err) return next(err);
         const results = sqlres.rows;
-        console.log(results);
+  
         res.locals.dbResults = results;
         return next();
       }
