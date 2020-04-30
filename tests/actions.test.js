@@ -1,5 +1,5 @@
-import * as types from '../app/src/Actions/actionTypes.js';
-import * as actions from '../app/src/Actions/actionCreator.js';
+import * as types from '../src/Actions/actionTypes.js';
+import * as actions from '../src/Actions/actionCreator.js';
 
 describe('updateData', () => {
   it('should create an object with data in the payload', () => {

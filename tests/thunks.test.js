@@ -1,5 +1,5 @@
-import * as types from '../app/src/Actions/actionTypes.js';
-import thunkAction from '../app/src/Middleware/thunkMiddleware.js';
+import * as types from '../src/Actions/actionTypes.js';
+import thunkAction from '../src/Middleware/thunkMiddleware.js';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';

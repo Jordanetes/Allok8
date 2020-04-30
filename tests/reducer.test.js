@@ -1,4 +1,4 @@
-import curlReducer from '../app/src/Reducers/reducers.js';
+import curlReducer from '../src/Reducers/reducers.js';
 
 describe('curlReducer', () => {
   let startState;

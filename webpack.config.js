@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV,
+
   entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -9,7 +10,7 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/': 'http://localhost:3000',
+      '/': 'http://localhost:3000/',
     },
     contentBase: './client',
     publicPath: '/dist',
@@ -18,12 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(tsx|ts)?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.(jsx|js)?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
@@ -34,7 +30,4 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: [ '.tsx', '.ts', '.js','.jsx', '.css'],
-  }
 };
